@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Lora:ital@0;1&display=swap');
+
+/* Hide Streamlit defaults */
+header[data-testid="stHeader"] { display: none; }
+#MainMenu { display: none; }
+footer { display: none; }
+.stDeployButton { display: none; }
+
+/* Background gradient */
+.stApp {
+    background: linear-gradient(160deg, #c8f0e0 0%, #ffd6e7 100%);
+    min-height: 100vh;
+    font-family: 'Lora', serif;
+}
+
+/* Full background coverage including bottom */
+.stApp::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(160deg, #c8f0e0 0%, #ffd6e7 100%);
+    z-index: 0;
+}
+
+/* Main container */
+.block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 5rem !important;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Floating background decorations */
+.bg-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.bg-decorations span {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.12;
+    animation: floatAround 8s ease-in-out infinite;
+}
+@keyframes floatAround {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* Opening animation for header */
+.main-header {
+    animation: fadeSlideDown 1.2s ease forwards;
+}
+@keyframes fadeSlideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Title */
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    color: #b5476b;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+/* Subtitle */
+.main-subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #5a9e7e;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Hide default chat message styling */
+[data-testid="stChatMessage"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+[data-testid="stChatMessageAvatarUser"],
+[data-testid="stChatMessageAvatarAssistant"] {
+    display: none !important;
+}
+
+/* User bubble */
+.user-bubble {
+    display: flex;
+    justify-content: flex-end;
+    margin: 8px 0;
+}
+.user-bubble-inner {
+    background: rgba(255, 182, 203, 0.75);
+    border-radius: 20px 20px 4px 20px;
+    padding: 12px 18px;
+    max-width: 65%;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: #3a2a2a;
+    box-shadow: 0 2px 10px rgba(181, 71, 107, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+/* Bot polaroid */
+.bot-polaroid {
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0;
+}
+.polaroid-card {
+    background: #fffef9;
+    border-radius: 3px;
+    padding: 16px 16px 30px 16px;
+    max-width: 70%;
+    box-shadow: 3px 4px 15px rgba(0,0,0,0.15),
+                0 1px 3px rgba(0,0,0,0.08);
+    font-family: 'Lora', serif;
+    font-size: 0.92rem;
+    color: #3a2a2a;
+    line-height: 1.7;
+    border: 1px solid #f0ede0;
+}
+.polaroid-card.tilt-left { transform: rotate(-1.5deg); }
+.polaroid-card.tilt-right { transform: rotate(1.2deg); }
+.polaroid-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.75rem;
+    color: #b5476b;
+    margin-top: 12px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Input container */
+[data-testid="stChatInputContainer"] {
+    background: linear-gradient(160deg, #c8f0e0 0%, #ffd6e7 100%) !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 12px 0 8px 0 !important;
+}
+[data-testid="stChatInputContainer"] * {
+    outline: none !important;
+    border-color: transparent !important;
+}
+[data-testid="stChatInputContainer"]:focus,
+[data-testid="stChatInputContainer"]:focus-within,
+[data-testid="stChatInputContainer"]:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Input box - glowing */
+[data-testid="stChatInput"] {
+    background: rgba(255, 255, 255, 0.88) !important;
+    border: 1.5px solid rgba(212, 120, 154, 0.4) !important;
+    border-radius: 20px !important;
+    font-family: 'Lora', serif !important;
+    font-style: italic !important;
+    color: #3a2a2a !important;
+    padding: 14px 20px !important;
+    outline: none !important;
+    box-shadow: 0 0 20px rgba(212, 120, 154, 0.25),
+                0 0 40px rgba(200, 240, 224, 0.3),
+                inset 0 0 10px rgba(255,255,255,0.5) !important;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+[data-testid="stChatInput"]:focus,
+[data-testid="stChatInput"]:active {
+    border: 1.5px solid rgba(212, 120, 154, 0.6) !important;
+    outline: none !important;
+    box-shadow: 0 0 30px rgba(212, 120, 154, 0.45),
+                0 0 60px rgba(200, 240, 224, 0.5),
+                inset 0 0 15px rgba(255,255,255,0.6) !important;
+}
+
+/* Send button */
+[data-testid="stChatInputSubmitButton"] button {
+    background: linear-gradient(135deg, #e8a0b4, #a8d8c0) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Fix send button - override red completely */
+button[data-testid="stChatInputSubmitButton"] {
+    background: linear-gradient(135deg, #e8a0b4, #a8d8c0) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    outline: none !important;
+}
