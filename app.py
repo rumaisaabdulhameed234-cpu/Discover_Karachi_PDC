@@ -49,7 +49,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Groq client
-client = Groq(api_key = "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")
+groq_api_key = st.secrets["GROQ_API_KEY"]
 
 # System prompt (Enforces utilizing the RAG context details safely)
 system_prompt = """
