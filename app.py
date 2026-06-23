@@ -50,6 +50,7 @@ st.markdown("""
 
 # Groq client
 groq_api_key = st.secrets["GROQ_API_KEY"]
+client = Groq(api_key=groq_api_key)
 
 # System prompt (Enforces utilizing the RAG context details safely)
 system_prompt = """
